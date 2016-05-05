@@ -1,0 +1,19 @@
+<ion-view>
+  <ion-nav-title>
+    {{ Users.user.fullname }}
+  </ion-nav-title>
+  
+  <ion-content>
+    <article class="card user-profile">
+      <header>
+        <div class="user-profile-picture">
+          <img src="{{ Users.user.profileImg }}"/>
+        </div>
+        <h2>{{ Users.user.fullname }}</h2>
+        <span>{{ Users.user.phone }}</span>
+      </header>
+
+      <p>{{ Users.user.aboutMe }}</p>
+    </article>
+  </ion-content>
+</ion-view>

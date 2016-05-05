@@ -1,0 +1,28 @@
+.user-profile {
+  margin: 10px auto;
+  padding: 15px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.user-profile > header > h2 {
+  margin-bottom: 2px;
+}
+
+.user-profile > p {
+  margin: 15px 0 0;
+}
+
+.user-profile .user-profile-picture {
+  margin: 15px auto;
+}
+
+.user-profile .user-profile-picture > img {
+  border-radius: 50%;
+}
+
+.user-profile .user-profile-picture,
+.user-profile .user-profile-picture > img {
+  width: 150px;
+  height: 150px;
+}
