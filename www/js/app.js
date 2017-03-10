@@ -1,7 +1,7 @@
 angular.module('myApp', ['ionic'])
 
   .controller('PostsCtrl', function(Post) {
-    var that = this;
+    let that = this;
 
     Post.all().then(function(data) {
       that.posts = data;
@@ -11,16 +11,14 @@ angular.module('myApp', ['ionic'])
   .controller('PostCtrl', function($stateParams, Post) {
     this.isShow = true;
 
-    var that = this;
-    Post.get(parseInt($stateParams.id)).then(function(post) {
-      that.post = post;
+    Post.get(parseInt($stateParams.id)).then((post) => {
+      this.post = post;
     });
   })
 
   .controller('UsersCtrl', function($stateParams, Post) {
-    var that = this;
-    Post.get(parseInt($stateParams.id)).then(function(user) {
-      that.user = user.user;
+    Post.get(parseInt($stateParams.id)).then((user) => {
+      this.user = user.user;
     });
   })
 
@@ -35,8 +33,8 @@ angular.module('myApp', ['ionic'])
   })
 
   .factory('Post', function($http) {
-    var RANDOM_USER_URL = 'http://api.randomuser.me/';
-    var posts = [];
+    const RANDOM_USER_URL = 'http://api.randomuser.me/';
+    let posts = [];
 
     function buildPost(id, post) {
       return {
@@ -47,7 +45,7 @@ angular.module('myApp', ['ionic'])
         user: {
           id: id,
           profileImg: post.picture.thumbnail,
-          fullname: post.name.first + " " + post.name.last,
+          fullname: `${post.name.first} ${post.name.last}`,
           aboutMe: 'Culpa esse culpa cillum sint laborum sint anim et in dolore eu incididunt dolore fugiat officia. Nostrud sit nostrud Lorem ipsum sunt nisi reprehenderit in nisi excepteur occaecat tempor non ut proident sit. Tempor cupidatat cillum velit excepteur laborum dolore veniam veniam. Veniam irure pariatur Lorem reprehenderit irure aliquip mollit ad ex Lorem nisi eiusmod ex nulla. Nisi adipisicing dolore adipisicing incididunt eiusmod mollit ullamco amet nulla aliqua id laborum anim culpa deserunt dolor. Id sit eiusmod cillum sunt irure tempor consectetur eiusmod nulla ullamco.',
           phone: post.cell
         }
@@ -55,17 +53,16 @@ angular.module('myApp', ['ionic'])
     }
 
     return {
-      all: function() {
-        var that = this;
+      all: () => {
         return $http({
           url: RANDOM_USER_URL,
-          method: "GET",
-          params: {results: 50}
+          method: 'GET',
+          params: { results: 50 }
         })
-          .then(function(data) {
-            var results = data.data.results;
+          .then((data) => {
+            let results = data.data.results;
 
-            for (var i = 0, l = results.length; i < l; i++) {
+            for (let i = 0, l = results.length; i < l; i++) {
               posts.push(buildPost(i + 1, results[i]));
             }
 
@@ -80,7 +77,7 @@ angular.module('myApp', ['ionic'])
       get: function(postId) {
         if (posts.length > 0) {
           return new Promise(function(resolve) {
-            for (var x = 0, l = posts.length; x < l; x++) {
+            for (let x = 0, l = posts.length; x < l; x++) {
 
               if (posts[x].id === postId) {
                 resolve(posts[x]);
