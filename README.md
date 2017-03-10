@@ -3,7 +3,7 @@ I had to create this app to demonstrate Ionic's performance to some customers, t
 
 They were not sure about the performance limits that Ionic and Cordova itself could get, actually neither I was. So I decided to create this really simple app similar to the most basics mock ups they provided me to really know how much we could get.
 
-This is a really simple app that just consists of three views, a dashboard that lists 50 posts, a post's details view, and a user profile. It connects to [RandomUser](http://api.randomuser.me/) to get mock data for the posts. This was a good test to know how much we could get from Ionic. I also created a similar app using React Native to show them the differences, even though I was very used to work with RN.
+This is a really simple app that just consists of three views, a dashboard that lists 50 posts, a post's details view, and a user profile. It connects to [RandomUser](http://randomuser.me/) to get mock data for the posts. This was a good test to know how much we could get from Ionic. I also created a similar app using React Native to show them the differences, even though I was very used to work with RN.
 
 ### Video using the app in my Nexus 5x (physical device):
 https://youtu.be/hPCi3DUyyIQ
